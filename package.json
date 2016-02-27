@@ -1,0 +1,32 @@
+{
+  "name": "@threadmetal/github.io",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a simple interface for publishing on github.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/threadmetal/github.io.git"
+  },
+  "keywords": [
+    "github.io",
+    "experimental"
+  ],
+  "author": "Robert M. Koch <threadmetal@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/threadmetal/github.io/issues"
+  },
+  "homepage": "https://github.com/threadmetal/github.io#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coffee-script": "^1.10.0",
+    "mocha": "^2.4.5"
+  },
+  "linkDependencies": [
+    "@threadmetal/shell"
+  ]
+}
