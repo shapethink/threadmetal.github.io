@@ -1,4 +1,6 @@
 shell = require "@threadmetal/shell"
+should = require "@threadmetal/should"
+
 module.exports =
 	config:
 		path:
@@ -9,13 +11,23 @@ module.exports =
 			build: ".build"
 			dist: ".dist"
 
-	build: () ->
+	clean: () ->
 		shell "rm -rf #{@config.dir.build}"
+
+	build: () ->
+		@clean()
 		shell "cp -a static #{@config.dir.build}"
 		shell "coffee --no-header -o #{@config.dir.build} -c src"
 		shell "browserify -o #{@config.path.bundle} #{@config.path.entry}"
 
+	test: () ->
+		shell "npm test"
+			.status.should.equal 0
+
 	publish: () ->
+		@clean()
+		@build()
+		@test()
 		process.chdir @config.dir.build
 		shell "git init"
 		shell "git remote add github.io git@github.com:threadmetal/threadmetal.github.io"
