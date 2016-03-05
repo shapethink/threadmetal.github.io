@@ -1,3 +1,4 @@
+shell = require "@threadmetal/shell"
 module.exports =
 	config:
 		path:
@@ -9,13 +10,19 @@ module.exports =
 			dist: ".dist"
 
 	build: () ->
-		console.log "building"
-		options = stdio: "inherit"
-		shell = require "@threadmetal/shell"
-		shell "rm -rf #{@config.dir.build}", options
-		shell "cp -a static #{@config.dir.build}", options
-		shell "coffee --no-header -o #{@config.dir.build} -c src", options
-		shell "browserify -o #{@config.path.bundle} #{@config.path.entry}", options
+		shell "rm -rf #{@config.dir.build}"
+		shell "cp -a static #{@config.dir.build}"
+		shell "coffee --no-header -o #{@config.dir.build} -c src"
+		shell "browserify -o #{@config.path.bundle} #{@config.path.entry}"
+
+	publish: () ->
+		process.chdir @config.dir.build
+		shell "git init"
+		shell "git remote add github.io git@github.com:threadmetal/threadmetal.github.io"
+		shell "git fetch github.io"
+		shell "git add ."
+		shell "git commit -m 'build result'"
+		shell "git push github.io master -f"
 
 if module is require.main
 	argv = process.argv.slice()
