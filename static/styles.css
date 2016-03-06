@@ -1,6 +1,8 @@
 .bad { color: maroon; }
 .good { color: green; }
 a.covert { text-decoration: none; color: inherit; cursor: default;}
+a.employer-link { text-decoration: none; }
+a.employer-link:hover { text-decoration: underline; }
 @media print {
 	a { text-decoration: none; color: blue; }
 	.only-screen { display: none; }
@@ -9,3 +11,95 @@ a.covert { text-decoration: none; color: inherit; cursor: default;}
 @media screen {
 	.only-print { display: none; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
