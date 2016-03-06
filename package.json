@@ -5,7 +5,8 @@
   "description": "a simple interface for publishing on github.io",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "coffee server.coffee"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
   },
   "linkDependencies": [
     "@threadmetal/shell"
-  ]
+  ],
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
