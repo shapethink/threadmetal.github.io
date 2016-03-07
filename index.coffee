@@ -12,6 +12,7 @@ module.exports =
 				remote = "github.io"
 				process.chdir @config.dir.build
 				shell "git init"
+				shell "git remote add #{remote} #{@config.remotes[remote]}"
 				shell "git fetch #{remote}"
 				shell "git add ."
 				shell "git commit -m 'build result'"
