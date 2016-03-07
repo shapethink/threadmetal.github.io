@@ -29,7 +29,7 @@ This section describes a number of external concepts and some syntax sugar to ma
 	should = require("chai").should()
 
 	# unit under test
-	GithubIO = require PKG.name
+	GithubIO = require "."
 
 Now that those ideas are nicely nailed down, we can proceed with...
 
