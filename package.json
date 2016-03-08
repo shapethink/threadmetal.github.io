@@ -1,7 +1,7 @@
 {
   "name": "@threadmetal/github.io",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "a simple interface for publishing on github.io",
   "main": "index.js",
   "scripts": {
