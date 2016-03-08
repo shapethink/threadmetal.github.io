@@ -19,10 +19,7 @@ module.exports =
 				shell "git push #{remote} master -f"
 			"heroku": () ->
 				remote = "heroku"
-				shell "git checkout -b release"
-				shell "npm version patch"
-				shell "git commit -m 'development release'"
-				shell "git push #{remote} release:master"
+				shell "git push #{remote} develop:master"
 
 		path:
 			entry: ".build/init.js"
