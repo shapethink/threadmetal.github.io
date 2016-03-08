@@ -19,10 +19,10 @@ module.exports =
 				shell "git push #{remote} master -f"
 			"heroku": () ->
 				remote = "heroku"
-				shell "git checkout -b release/#{remote}"
-				shell "git add .build"
-				shell "git commit -m 'build result'"
-				shell "git push #{remote}/master release/#{remote} -f"
+				shell "git checkout -b release"
+				shell "npm version patch"
+				shell "git commit -m 'development release'"
+				shell "git push #{remote} release:master"
 
 		path:
 			entry: ".build/init.js"
@@ -51,6 +51,8 @@ module.exports =
 		shell "xdg-open .build/index.html", stdio:"pipe"
 
 	publish: (remote = "github.io") ->
+		shell "git add -n . | grep '.'"
+			.status.should.equal 1
 		@clean()
 		@build()
 		@test()
@@ -69,3 +71,4 @@ if module is require.main
 	if module.exports[subcmd]
 		module.exports[subcmd].apply module.exports, argv
 	else throw new Error "unknown subcommand: #{subcmd}"
+
