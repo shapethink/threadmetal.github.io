@@ -35,8 +35,8 @@ module.exports =
 
 	build: () ->
 		@clean()
-		shell "cp -a static #{@config.dir.build}"
-		shell "coffee --no-header -o #{@config.dir.build} -c src"
+		shell "cp -a #{@config.dir.static} #{@config.dir.build}"
+		shell "coffee --no-header -o #{@config.dir.build} -c #{@config.dir.coffee}"
 		shell "browserify -o #{@config.path.bundle} #{@config.path.entry}"
 
 	watch: () ->
@@ -50,7 +50,7 @@ module.exports =
 			console.log "change: #{changed}"
 			relative = path.relative @config.dir.static, changed
 			dest = path.join @config.dir.build, relative
-			shell "cp #{changed} #{dest}"
+			shell "cp '#{changed}' '#{dest}'"
 
 		src.coffee = chokidar.watch @config.dir.coffee, recursive:true
 		console.log "watching #{@config.dir.coffee}"
@@ -58,7 +58,7 @@ module.exports =
 			console.log "change: #{changed}"
 			relative = path.relative @config.dir.coffee, path.dirname changed
 			dest = path.join @config.dir.build, relative
-			shell "coffee --no-header -o #{dest} -c #{changed}"
+			shell "coffee --no-header -o '#{dest}' -c '#{changed}'"
 			shell "browserify -o #{@config.path.bundle} #{@config.path.entry}"
 
 
