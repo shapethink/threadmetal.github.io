@@ -33,6 +33,7 @@
     "browserify": "^13.0.0",
     "chokidar": "^1.4.3",
     "coffee-script": "^1.10.0",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "simplecrawler": "^0.6.2"
   }
 }
